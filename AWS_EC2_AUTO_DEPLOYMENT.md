@@ -167,12 +167,12 @@ jobs:
         # SSH into the production EC2 instance
         ssh -o StrictHostKeyChecking=no -i private_key.pem $EC2_USER@$EC2_HOST << 'EOF'
           sudo -s  # Switch to superuser if needed
-          cd /var/www/html/oridosai-api-backend  # Navigate to the project directory
+          cd /var/www/html/project_name  # Navigate to the project directory
           git stash  # Stash any local changes
           git pull origin master  # Pull the latest code from the master branch
 
           # Activate the Python virtual environment
-          source /var/www/html/oridosai-api-backend/venv/bin/activate
+          source /var/www/html/project_name/venv/bin/activate
           pip install -r requirements.txt  # Install the required Python packages
 
           # Uncomment the following lines to apply database migrations and collect static files
